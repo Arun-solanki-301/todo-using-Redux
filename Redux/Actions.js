@@ -6,3 +6,12 @@ export const addTodo = (item) =>{
         })
     }
 }
+
+// export const removeTodo = (item) =>{
+//     return (dispatch)=>{
+//         dispatch({
+//         type : "REMOVE_TODO",
+//         Payload : item
+//         })
+//     }
+// }

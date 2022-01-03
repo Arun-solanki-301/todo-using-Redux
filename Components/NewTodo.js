@@ -8,6 +8,7 @@ import {
   StyleSheet,
   ActionSheetIOS,
   FlatList,
+  Button,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -28,11 +29,10 @@ const isTodoComplete = (id)=>{
     TodoState.forEach(element => {
         if(element.id === id){
             element.checked = (!element.checked); 
-            setcheck(!check) 
+            setcheck(!check)     
         }          
     });
 }
-console.log(TodoState)
   return (
     <View style={styles.container}>
       <FlatList
@@ -57,7 +57,7 @@ export default NewTodo;
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 20,
+    marginHorizontal: 0,
   },
   TodoView: {
     display: "flex",
@@ -70,17 +70,18 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     height: 30,
     width: 30 ,
-    borderRadius: "50%",
+    borderRadius: 100,
   },
   TodoBtnTrue :{
     backgroundColor: "green",
     height: 30,
     width: 30 ,
-    borderRadius: "50%",
+    borderRadius: 100,
   },    
   Text: {
     fontSize: 18,
     width: "90%",
     marginLeft: 15,
   },
+
 });

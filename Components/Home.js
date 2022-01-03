@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {View , Text, TextInput, Touchable, TouchableOpacity ,StyleSheet, ActionSheetIOS} from 'react-native';
+import {View , Text, TextInput, Touchable, TouchableOpacity ,StyleSheet, ActionSheetIOS, ScrollView} from 'react-native';
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as func from "../Redux/Actions";
@@ -12,14 +12,22 @@ const Home = () =>{
     })
     const dispatch = useDispatch();
     const {addTodo} = bindActionCreators(func , dispatch);
+    const addTodos = ()=>{
+        if(AddTodoInput !== ""){
+            addTodo(AddTodoInput) 
+            setAddTodoInput("")
+        }
+    }
     return (
+        <ScrollView >
         <View style={styles.container}>
             <View style={styles.AddTodoView}>
             <TextInput style={styles.AddTodoInput} value = {AddTodoInput} onChangeText = {(e)=>setAddTodoInput(e)}/>
-            <TouchableOpacity style={styles.AddTodoBtn} ><Text style={styles.AddTodoBtnText} onPress={() => addTodo(AddTodoInput)}>Add</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.AddTodoBtn} ><Text style={styles.AddTodoBtnText} onPress={() => addTodos()}>Add</Text></TouchableOpacity>
             </View>
             <NewTodo />
         </View>
+        </ScrollView>
     )
 }
 
@@ -42,7 +50,9 @@ const styles = StyleSheet.create({
         width : "80%",
         height : 50,
         borderColor : "black",
-        borderWidth : 2
+        borderWidth : 2,
+        fontSize : 25,
+        color : "blue"
     },
     AddTodoBtn :{
         backgroundColor : "black",
