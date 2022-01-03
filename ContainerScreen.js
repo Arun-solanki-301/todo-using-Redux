@@ -6,6 +6,8 @@ import Unchecked from "./Components/unchecked";
 import { View, Text } from "react-native";
 import Home from "./Components/Home";
 import { useSelector } from "react-redux";
+import { TabView } from "react-native-tab-view";
+// import FacebookApp from "./facebook";
 // import Google from "./GoogleSignIn";
 const Tab = createMaterialTopTabNavigator();
 
@@ -19,6 +21,7 @@ const ContainerScreen = () => {
 
   }}>
         {/* <Tab.Screen name="Google" component={Google} /> */}
+        {/* <Tab.Screen name = "FacebookApp" component={FacebookApp}/> */}
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Checked" component={Checked} />
         <Tab.Screen name="Unchecked" component={Unchecked} />
