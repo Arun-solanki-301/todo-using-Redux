@@ -22,16 +22,16 @@ const [check , setcheck] = useState(false)
     return State.TodoData;
   });
   const dispatch = useDispatch();
-  const {addTodo} = bindActionCreators(func , dispatch);
-
-
+  const {addTodo , UpdateTodo} = bindActionCreators(func , dispatch);
+ 
 const isTodoComplete = (id)=>{
     TodoState.forEach(element => {
         if(element.id === id){
-            element.checked = (!element.checked); 
-            setcheck(!check)     
-        }          
+            element.checked = !element.checked; 
+            setcheck(!check)
+        }    
     });
+    UpdateTodo()
 }
   return (
     <View style={styles.container}>

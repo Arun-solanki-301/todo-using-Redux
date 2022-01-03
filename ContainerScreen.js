@@ -1,14 +1,28 @@
 import React from "react";
-import {View , Text} from 'react-native';
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import Checked from "./Components/checked";
+import Unchecked from "./Components/unchecked";
+import { View, Text } from "react-native";
 import Home from "./Components/Home";
 import { useSelector } from "react-redux";
+const Tab = createMaterialTopTabNavigator();
 
-const ContainerScreen = () =>{
-    return (
-        <View>
-            <Home />
-        </View>
-    )
-}
+const ContainerScreen = () => {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator screenOptions={{
+    tabBarLabelStyle: { fontSize: 14 , color : "#fff" },
+    tabBarItemStyle: { width: 120 },
+    tabBarStyle: { backgroundColor: '#128c7eab' },
+
+  }}>
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Checked" component={Checked} />
+        <Tab.Screen name="Unchecked" component={Unchecked} />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default ContainerScreen;

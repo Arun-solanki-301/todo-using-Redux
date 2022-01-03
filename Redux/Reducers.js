@@ -14,7 +14,7 @@ const TodoReducer = (state = initialState , Action)=>{
     let data = {title : Action.Payload, checked : false, id : Math.random()}
     switch(Action.type){
         case "ADD_TODO": return [...state , data];
-        // case "REMOVE_TODO": return [...state , data];
+        case "UPDATE_TODO" : return [...state]
         default : return state;
     }
 }

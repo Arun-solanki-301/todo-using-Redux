@@ -10,8 +10,10 @@ const Home = () =>{
     const TodoState = useSelector((State)=>{
         return State
     })
+    console.log(TodoState)
     const dispatch = useDispatch();
     const {addTodo} = bindActionCreators(func , dispatch);
+
     const addTodos = ()=>{
         if(AddTodoInput !== ""){
             addTodo(AddTodoInput) 
@@ -25,7 +27,7 @@ const Home = () =>{
             <TextInput style={styles.AddTodoInput} value = {AddTodoInput} onChangeText = {(e)=>setAddTodoInput(e)}/>
             <TouchableOpacity style={styles.AddTodoBtn} ><Text style={styles.AddTodoBtnText} onPress={() => addTodos()}>Add</Text></TouchableOpacity>
             </View>
-            <NewTodo />
+            <NewTodo TodoState={TodoState}/>
         </View>
         </ScrollView>
     )
