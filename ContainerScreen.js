@@ -6,6 +6,7 @@ import Unchecked from "./Components/unchecked";
 import { View, Text } from "react-native";
 import Home from "./Components/Home";
 import { useSelector } from "react-redux";
+// import Google from "./GoogleSignIn";
 const Tab = createMaterialTopTabNavigator();
 
 const ContainerScreen = () => {
@@ -17,6 +18,7 @@ const ContainerScreen = () => {
     tabBarStyle: { backgroundColor: '#128c7eab' },
 
   }}>
+        {/* <Tab.Screen name="Google" component={Google} /> */}
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Checked" component={Checked} />
         <Tab.Screen name="Unchecked" component={Unchecked} />
